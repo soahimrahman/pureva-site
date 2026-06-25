@@ -1,0 +1,26 @@
+<%- include('partials/shell-start') %>
+  <div class="admin-header">
+    <div class="admin-breadcrumb"><a href="/admin" style="color:inherit">Dashboard</a> / Patch-test note</div>
+    <h1>Patch-test note</h1>
+    <p>The safety reminder shown under the "How to use" steps.</p>
+  </div>
+  <form class="admin-form" action="/admin/page-patch-note" method="POST">
+    <div class="form-row">
+      <label>Note text</label>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:5px;">English</div>
+          <textarea name="valueEn" rows="3"><%= valueEn %></textarea>
+        </div>
+        <div>
+          <div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:5px;">বাংলা</div>
+          <textarea name="valueBn" rows="3" style="font-family:'Hind Siliguri',sans-serif;"><%= valueBn %></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-outline">Save changes</button>
+      <a href="/admin" class="btn btn-ghost">Cancel</a>
+    </div>
+  </form>
+<%- include('partials/shell-end') %>

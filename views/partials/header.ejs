@@ -1,0 +1,44 @@
+<div class="announce" id="announce">
+  <span><%- t(content.settings.announceText) %></span>
+  <button class="announce__close" aria-label="Dismiss"><svg><use href="#icon-close"/></svg></button>
+</div>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="/" class="brand">
+      <img src="<%= t(content.settings.logoPath) || content.settings.logoPath %>" alt="<%= t(content.settings.brandName) || content.settings.brandName %>">
+      <span>
+        <span class="brand-word"><%= content.settings.brandName %></span>
+        <span class="brand-tag"><%= t(content.settings.tagline) %></span>
+      </span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <% content.nav.forEach(function(item) { %>
+          <li><a href="<%= item.href %>"><%= t(item.label) %></a></li>
+        <% }); %>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-toggle" aria-label="Language">
+        <a href="/set-language/en" class="<%= lang === 'en' ? 'is-active' : '' %>" aria-label="English">EN</a>
+        <a href="/set-language/bn" class="<%= lang === 'bn' ? 'is-active' : '' %>" aria-label="বাংলা" style="font-family:'Hind Siliguri',sans-serif;">বাং</a>
+      </div>
+      <a href="https://wa.me/<%= content.settings.whatsappNumber %>" class="btn btn-whatsapp btn-sm">
+        <svg><use href="#icon-whatsapp"/></svg><span class="btn-label"><%= ui('orderNow') %></span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <svg><use href="#icon-menu"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="container mobile-panel">
+    <% content.nav.forEach(function(item) { %>
+      <a href="<%= item.href %>"><%= t(item.label) %></a>
+    <% }); %>
+    <div style="display:flex;gap:8px;padding:12px 4px 4px;">
+      <a href="/set-language/en" class="btn btn-outline btn-sm <%= lang==='en'?'is-active':'' %>" style="flex:1;justify-content:center;">EN</a>
+      <a href="/set-language/bn" class="btn btn-outline btn-sm <%= lang==='bn'?'is-active':'' %>" style="flex:1;justify-content:center;">বাংলা</a>
+    </div>
+  </div>
+</header>

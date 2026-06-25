@@ -1,0 +1,762 @@
+{
+  "settings": {
+    "brandName": "Pureva",
+    "tagline": {
+      "en": "Nature's Touch, Pure Skin",
+      "bn": "প্রকৃতির ছোঁয়া, নিখাদ ত্বক"
+    },
+    "logoPath": "/assets/logo.svg",
+    "whatsappNumber": "8801939446716",
+    "facebookUrl": "https://facebook.com/pureva.care",
+    "metaDescription": {
+      "en": "Cold-process handmade soap bars made in small batches in Bangladesh. Neem, turmeric, charcoal and goat milk & saffron — no harsh chemicals, cash on delivery nationwide.",
+      "bn": "বাংলাদেশে ছোট ব্যাচে তৈরি কোল্ড-প্রসেস হাতে তৈরি সাবান। নিম, হলুদ, চারকোল ও গোট মিল্ক-জাফরান — কোনো কড়া রাসায়নিক ছাড়াই, সারা দেশে ক্যাশ অন ডেলিভারি।"
+    },
+    "announceText": {
+      "en": "<strong>Cash on delivery</strong> all over Bangladesh — free shipping when you order 2 bars or more.",
+      "bn": "সারা বাংলাদেশে <strong>ক্যাশ অন ডেলিভারি</strong> — ২টি বা তার বেশি বার অর্ডার করলে ফ্রি শিপিং।"
+    },
+    "defaultLanguage": "en"
+  },
+  "hero": {
+    "eyebrow": {
+      "en": "Cold-process · Small batch · Dhaka, Bangladesh",
+      "bn": "কোল্ড-প্রসেস · ছোট ব্যাচ · ঢাকা, বাংলাদেশ"
+    },
+    "headline": {
+      "en": "Good skincare doesn't have to be",
+      "bn": "ভালো ত্বক পরিচর্যা জটিল"
+    },
+    "headlineAccent": {
+      "en": "complicated.",
+      "bn": "হওয়ার দরকার নেই।"
+    },
+    "subhead": {
+      "en": "Healthy, gentle, and natural — for everyday skincare.",
+      "bn": "হেলদি, জেন্টল ও ন্যাচারাল — দৈনিক ত্বক পরিচর্যার জন্য।"
+    },
+    "noteHtml": {
+      "en": "<strong>Cold-processed by hand</strong> in batches under 40 bars — no harsh sulphates, no synthetic fragrance, no shortcuts.",
+      "bn": "প্রতিটি বার <strong>হাতে কোল্ড-প্রসেস</strong> পদ্ধতিতে তৈরি, ৪০টির কম ব্যাচে — কোনো কড়া সালফেট নেই, কৃত্রিম সুগন্ধি নেই, কোনো শর্টকাট নেই।"
+    },
+    "primaryCtaLabel": {
+      "en": "Order on WhatsApp",
+      "bn": "হোয়াটসঅ্যাপে অর্ডার করুন"
+    },
+    "secondaryCtaLabel": {
+      "en": "Browse the 4 bars",
+      "bn": "৪টি বার দেখুন"
+    },
+    "image": null
+  },
+  "heroStats": [
+    {
+      "id": "stat1",
+      "num": "04",
+      "label": {
+        "en": "Herbal blends",
+        "bn": "হারবাল ব্লেন্ড"
+      }
+    },
+    {
+      "id": "stat2",
+      "num": "100%",
+      "label": {
+        "en": "Cold-process",
+        "bn": "কোল্ড-প্রসেস"
+      }
+    },
+    {
+      "id": "stat3",
+      "num": "4–6 wk",
+      "label": {
+        "en": "Cured before sale",
+        "bn": "কিউরিং সময়কাল"
+      }
+    },
+    {
+      "id": "stat4",
+      "num": "COD",
+      "label": {
+        "en": "Cash on delivery",
+        "bn": "ক্যাশ অন ডেলিভারি"
+      }
+    }
+  ],
+  "products": [
+    {
+      "name": {
+        "en": "Neem Defense Bar",
+        "bn": "নিম ডিফেন্স বার"
+      },
+      "weight": "85g",
+      "price": 350,
+      "salePrice": 5,
+      "saleStartDate": "2026-07-10",
+      "saleEndDate": "2026-07-10",
+      "rating": 4.8,
+      "color": "#2e5a44",
+      "icon": "icon-shield",
+      "ledger": {
+        "en": "NEEM OIL 30% · COCONUT OIL 35% · OLIVE OIL 20% · SHEA BUTTER 13% · TEA TREE 2%",
+        "bn": "নিম অয়েল ৩০% · নারকেল অয়েল ৩৫% · অলিভ অয়েল ২০% · শিয়া বাটার ১৩% · টি ট্রি ২%"
+      },
+      "description": {
+        "en": "Built around raw neem and a touch of tea tree, this bar targets breakouts and everyday bacteria without stripping the skin barrier.",
+        "bn": "কাঁচা নিম ও সামান্য টি ট্রি অয়েল দিয়ে তৈরি এই বারটি ত্বকের ব্রণ ও ব্যাকটেরিয়া দূর করে, ত্বকের প্রাকৃতিক আর্দ্রতা বজায় রেখে।"
+      },
+      "benefits": {
+        "en": [
+          "Purifying & anti-bacterial",
+          "Calms acne-prone skin",
+          "No tight, dry after-feel"
+        ],
+        "bn": [
+          "জীবাণুনাশক ও অ্যান্টি-ব্যাকটেরিয়াল",
+          "ব্রণপ্রবণ ত্বক শান্ত রাখে",
+          "ব্যবহারের পর টানটান বা শুষ্ক ভাব হয় না"
+        ]
+      },
+      "image": null,
+      "id": "neem-defense-bar"
+    },
+    {
+      "name": {
+        "en": "Turmeric Glow Bar",
+        "bn": "টারমেরিক গ্লো বার"
+      },
+      "weight": "85g",
+      "price": 350,
+      "salePrice": 299,
+      "saleStartDate": "2026-06-10",
+      "saleEndDate": "2026-07-10",
+      "rating": 4.6,
+      "color": "#c77f1f",
+      "icon": "icon-sun",
+      "ledger": {
+        "en": "KASTURI TURMERIC 18% · COCONUT OIL 32% · ALMOND OIL 22% · OLIVE OIL 25% · HONEY 3%",
+        "bn": "কস্তুরী হলুদ ১৮% · নারকেল অয়েল ৩২% · আমন্ড অয়েল ২২% · অলিভ অয়েল ২৫% · মধু ৩%"
+      },
+      "description": {
+        "en": "Kasturi turmeric and almond oil work on dullness and sun tan, helping even out tone with regular use.",
+        "bn": "কস্তুরী হলুদ ও আমন্ড অয়েলের মিশ্রণে তৈরি এই বার ত্বকের নিষ্প্রভ ভাব ও রোদে পোড়া দাগ কমাতে সাহায্য করে নিয়মিত ব্যবহারে।"
+      },
+      "benefits": {
+        "en": [
+          "Brightens & evens tone",
+          "Fades sun-tan patches",
+          "Gentle enough for daily use"
+        ],
+        "bn": [
+          "উজ্জ্বলতা বাড়ায় ও টোন সমান করে",
+          "রোদে পোড়া দাগ হালকা করে",
+          "প্রতিদিন ব্যবহারের উপযোগী"
+        ]
+      },
+      "image": "/uploads/12f5a10cd180c1e0e12a.jpg",
+      "id": "turmeric-glow-bar"
+    },
+    {
+      "id": "charcoal-detox-bar",
+      "name": {
+        "en": "Charcoal Detox Bar",
+        "bn": "চারকোল ডিটক্স বার"
+      },
+      "weight": "85g",
+      "price": 380,
+      "salePrice": null,
+      "saleStartDate": null,
+      "saleEndDate": null,
+      "rating": 4.7,
+      "color": "#3D3A35",
+      "icon": "icon-charcoal",
+      "ledger": {
+        "en": "ACTIVATED CHARCOAL 8% · COCONUT OIL 35% · OLIVE OIL 27% · CASTOR OIL 15% · PEPPERMINT 1%",
+        "bn": "অ্যাক্টিভেটেড চারকোল ৮% · নারকেল অয়েল ৩৫% · অলিভ অয়েল ২৭% · ক্যাস্টর অয়েল ১৫% · পিপারমিন্ট ১%"
+      },
+      "description": {
+        "en": "Activated charcoal pulls oil and impurities from open pores — built for oily, combination skin in Dhaka's humidity.",
+        "bn": "অ্যাক্টিভেটেড চারকোল লোমকূপ থেকে তেল ও ময়লা টেনে বের করে — ঢাকার আর্দ্র আবহাওয়ায় তৈলাক্ত ও মিশ্র ত্বকের জন্য তৈরি।"
+      },
+      "benefits": {
+        "en": [
+          "Deep pore cleanse",
+          "Controls midday shine",
+          "Non-comedogenic recipe"
+        ],
+        "bn": [
+          "লোমকূপ গভীরভাবে পরিষ্কার করে",
+          "সারাদিনের তৈলাক্ত ভাব নিয়ন্ত্রণ করে",
+          "ছিদ্র বন্ধ করে না এমন ফর্মুলা"
+        ]
+      },
+      "image": null
+    },
+    {
+      "id": "goat-milk-saffron-bar",
+      "name": {
+        "en": "Goat Milk & Saffron Bar",
+        "bn": "গোট মিল্ক ও জাফরান বার"
+      },
+      "weight": "110g",
+      "price": 420,
+      "salePrice": null,
+      "saleStartDate": null,
+      "saleEndDate": null,
+      "rating": 4.9,
+      "color": "#C9A06B",
+      "icon": "icon-crown",
+      "ledger": {
+        "en": "GOAT MILK 20% · SAFFRON INFUSION 1% · SHEA BUTTER 25% · COCONUT OIL 30% · OLIVE OIL 24%",
+        "bn": "গোট মিল্ক ২০% · জাফরান ইনফিউশন ১% · শিয়া বাটার ২৫% · নারকেল অয়েল ৩০% · অলিভ অয়েল ২৪%"
+      },
+      "description": {
+        "en": "Our richest bar — fresh goat milk and a saffron infusion for visibly soft, nourished skin, sized up for daily body use.",
+        "bn": "আমাদের সবচেয়ে সমৃদ্ধ বার — তাজা গোট মিল্ক ও জাফরানের মিশ্রণে ত্বক হয় নরম ও পুষ্ট, পুরো শরীরে ব্যবহারের জন্য বড় সাইজে তৈরি।"
+      },
+      "benefits": {
+        "en": [
+          "Deeply moisturising",
+          "Soft, supple skin",
+          "Larger 110g bar for the body"
+        ],
+        "bn": [
+          "গভীরভাবে ময়েশ্চারাইজ করে",
+          "ত্বক নরম ও কোমল রাখে",
+          "শরীরের জন্য বড় ১১০ গ্রাম বার"
+        ]
+      },
+      "image": null
+    },
+    {
+      "name": {
+        "en": "as",
+        "bn": ""
+      },
+      "weight": "asfa",
+      "price": 20,
+      "salePrice": 44.3,
+      "saleStartDate": "5524",
+      "saleEndDate": "",
+      "rating": null,
+      "color": "#1af496",
+      "icon": "icon-leaf",
+      "ledger": {
+        "en": "",
+        "bn": ""
+      },
+      "description": {
+        "en": "",
+        "bn": ""
+      },
+      "benefits": {
+        "en": [],
+        "bn": []
+      },
+      "id": "prod-mqsh58mi-r5yi6"
+    },
+    {
+      "name": {
+        "en": "as",
+        "bn": ""
+      },
+      "weight": "85g",
+      "price": 7456,
+      "salePrice": 475,
+      "saleStartDate": "5524",
+      "saleEndDate": "2026-07-10",
+      "rating": null,
+      "color": "#3d6453",
+      "icon": "icon-leaf",
+      "ledger": {
+        "en": "",
+        "bn": ""
+      },
+      "description": {
+        "en": "",
+        "bn": ""
+      },
+      "benefits": {
+        "en": [],
+        "bn": []
+      },
+      "image": "/uploads/4c09ffa5df98ae3bb1d1.jpg",
+      "id": "prod-mqsh73qs-zd3qs"
+    }
+  ],
+  "compare": {
+    "eyebrow": {
+      "en": "Why cold-process",
+      "bn": "কেন কোল্ড-প্রসেস"
+    },
+    "title": {
+      "en": "Pureva vs. mass-market soap",
+      "bn": "পিউরেভা বনাম সাধারণ বাজারের সাবান"
+    },
+    "subtitle": {
+      "en": "The difference is in the method, not just the ingredient list.",
+      "bn": "পার্থক্যটা শুধু উপাদানে নয়, পদ্ধতিতেও।"
+    }
+  },
+  "compareRows": [
+    {
+      "id": "cmp1",
+      "label": {
+        "en": "Process",
+        "bn": "প্রক্রিয়া"
+      },
+      "pureva": {
+        "en": "Cold-processed by hand, cured 4–6 weeks",
+        "bn": "হাতে কোল্ড-প্রসেস, ৪–৬ সপ্তাহ কিউরিং"
+      },
+      "regular": {
+        "en": "Machine-pressed, heat-blasted in minutes",
+        "bn": "মেশিনে প্রেস, মিনিটেই হিট-ব্লাস্ট"
+      }
+    },
+    {
+      "id": "cmp2",
+      "label": {
+        "en": "Glycerin",
+        "bn": "গ্লিসারিন"
+      },
+      "pureva": {
+        "en": "Natural glycerin stays in every bar",
+        "bn": "প্রতিটি বারে প্রাকৃতিক গ্লিসারিন বজায় থাকে"
+      },
+      "regular": {
+        "en": "Stripped out and sold separately",
+        "bn": "আলাদা করে বের করে বিক্রি করা হয়"
+      }
+    },
+    {
+      "id": "cmp3",
+      "label": {
+        "en": "Ingredients",
+        "bn": "উপাদান"
+      },
+      "pureva": {
+        "en": "Recognisable plant oils & botanicals",
+        "bn": "চেনা প্ল্যান্ট অয়েল ও প্রাকৃতিক উপাদান"
+      },
+      "regular": {
+        "en": "Synthetic detergents & fragrance",
+        "bn": "সিন্থেটিক ডিটারজেন্ট ও সুগন্ধি"
+      }
+    },
+    {
+      "id": "cmp4",
+      "label": {
+        "en": "Skin feel",
+        "bn": "ত্বকের অনুভূতি"
+      },
+      "pureva": {
+        "en": "Soft, never tight after rinsing",
+        "bn": "ধোয়ার পরও নরম থাকে, টানটান লাগে না"
+      },
+      "regular": {
+        "en": "Often dry, tight, irritated",
+        "bn": "প্রায়ই শুষ্ক, টানটান ও জ্বালাপোড়া করে"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "id": "ing1",
+      "name": {
+        "en": "Neem",
+        "bn": "নিম"
+      },
+      "description": {
+        "en": "Anti-bacterial, calms breakouts",
+        "bn": "জীবাণুনাশক, ব্রণ কমায়"
+      },
+      "icon": "icon-leaf"
+    },
+    {
+      "id": "ing2",
+      "name": {
+        "en": "Kasturi Turmeric",
+        "bn": "কস্তুরী হলুদ"
+      },
+      "description": {
+        "en": "Brightens & evens out tone",
+        "bn": "উজ্জ্বলতা বাড়ায় ও টোন সমান করে"
+      },
+      "icon": "icon-sun"
+    },
+    {
+      "id": "ing3",
+      "name": {
+        "en": "Activated Charcoal",
+        "bn": "চারকোল"
+      },
+      "description": {
+        "en": "Draws out oil & impurities",
+        "bn": "তেল ও ময়লা টেনে বের করে"
+      },
+      "icon": "icon-charcoal"
+    },
+    {
+      "id": "ing4",
+      "name": {
+        "en": "Goat Milk",
+        "bn": "গোট মিল্ক"
+      },
+      "description": {
+        "en": "Deep moisture, softer skin",
+        "bn": "গভীর আর্দ্রতা, নরম ত্বক"
+      },
+      "icon": "icon-milk"
+    },
+    {
+      "id": "ing5",
+      "name": {
+        "en": "Saffron",
+        "bn": "জাফরান"
+      },
+      "description": {
+        "en": "Natural glow, gentle radiance",
+        "bn": "প্রাকৃতিক উজ্জ্বলতা, কোমল দীপ্তি"
+      },
+      "icon": "icon-sparkle"
+    },
+    {
+      "id": "ing6",
+      "name": {
+        "en": "Coconut & Olive Oil",
+        "bn": "নারকেল ও অলিভ অয়েল"
+      },
+      "description": {
+        "en": "The cold-process base in every bar",
+        "bn": "প্রতিটি বারের কোল্ড-প্রসেস ভিত্তি"
+      },
+      "icon": "icon-droplet"
+    }
+  ],
+  "trust": {
+    "eyebrow": {
+      "en": "The Pureva standard",
+      "bn": "পিউরেভা স্ট্যান্ডার্ড"
+    },
+    "title": {
+      "en": "Handmade doesn't mean unregulated",
+      "bn": "হাতে তৈরি মানেই নিয়মহীন নয়"
+    },
+    "body": {
+      "en": "Every batch is mixed, poured and cut by hand in small runs, then left to cure for a minimum of four weeks before it reaches you.",
+      "bn": "প্রতিটি ব্যাচ অল্প পরিমাণে হাতে মিশিয়ে, ঢেলে ও কেটে তৈরি করা হয়, তারপর আপনার কাছে পৌঁছানোর আগে অন্তত চার সপ্তাহ কিউরিংয়ের জন্য রাখা হয়।"
+    },
+    "points": {
+      "en": [
+        "Cold-process method preserves natural glycerin",
+        "No SLS, parabens, or synthetic dyes",
+        "Never tested on animals",
+        "Cured a minimum of 4 weeks for a milder bar"
+      ],
+      "bn": [
+        "কোল্ড-প্রসেস পদ্ধতি প্রাকৃতিক গ্লিসারিন ধরে রাখে",
+        "কোনো SLS, প্যারাবেন বা সিন্থেটিক রং নেই",
+        "কখনো প্রাণীর উপর পরীক্ষা করা হয় না",
+        "কমপক্ষে ৪ সপ্তাহ কিউরিং, আরও মৃদু বারের জন্য"
+      ]
+    }
+  },
+  "trustBadges": [
+    {
+      "id": "badge1",
+      "title": {
+        "en": "100% Natural",
+        "bn": "১০০% প্রাকৃতিক"
+      },
+      "text": {
+        "en": "Plant-based oils & botanicals",
+        "bn": "উদ্ভিদ-ভিত্তিক তেল ও প্রাকৃতিক উপাদান"
+      },
+      "icon": "icon-leaf"
+    },
+    {
+      "id": "badge2",
+      "title": {
+        "en": "Handmade",
+        "bn": "হাতে তৈরি"
+      },
+      "text": {
+        "en": "Small batches, hand-cut",
+        "bn": "ছোট ব্যাচ, হাতে কাটা"
+      },
+      "icon": "icon-heart-hand"
+    },
+    {
+      "id": "badge3",
+      "title": {
+        "en": "Cruelty-Free",
+        "bn": "প্রাণী নির্যাতনমুক্ত"
+      },
+      "text": {
+        "en": "Never tested on animals",
+        "bn": "কখনো প্রাণীর উপর পরীক্ষা করা হয় না"
+      },
+      "icon": "icon-ban"
+    },
+    {
+      "id": "badge4",
+      "title": {
+        "en": "No Harsh Chemicals",
+        "bn": "কড়া রাসায়নিক মুক্ত"
+      },
+      "text": {
+        "en": "Free from SLS & parabens",
+        "bn": "SLS ও প্যারাবেন মুক্ত"
+      },
+      "icon": "icon-shield"
+    },
+    {
+      "title": {
+        "en": "aga",
+        "bn": "ag"
+      },
+      "text": {
+        "en": "ag",
+        "bn": "aga"
+      },
+      "icon": "icon-eye",
+      "id": "badge-mqshmxbu-1447h"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "t1",
+      "name": "নুসরাত জাহান",
+      "location": "Dhaka",
+      "rating": 5,
+      "quote": {
+        "en": "My oily skin calmed down a lot within two weeks of using the charcoal bar. The packaging is lovely too.",
+        "bn": "চারকোল বারটা ব্যবহার করার দুই সপ্তাহের মধ্যে তেলতেলে ভাবটা অনেক কমে গেছে। প্যাকেজিংও সুন্দর।"
+      },
+      "photo": null,
+      "status": "approved",
+      "createdAt": "2026-05-02"
+    },
+    {
+      "id": "t2",
+      "name": "Tahmina Akter",
+      "location": "Chattogram",
+      "rating": 5,
+      "quote": {
+        "en": "The turmeric bar genuinely helped with my sun tan after a few weeks. Smells natural, not perfumey.",
+        "bn": "টারমেরিক বারটা আমার রোদে পোড়া দাগের জন্য সত্যিই কাজ করেছে কয়েক সপ্তাহের মধ্যে। গন্ধটাও প্রাকৃতিক, কড়া পারফিউমের মতো না।"
+      },
+      "photo": null,
+      "status": "approved",
+      "createdAt": "2026-05-10"
+    },
+    {
+      "id": "t3",
+      "name": "রাকিব হাসান",
+      "location": "Sylhet",
+      "rating": 4,
+      "quote": {
+        "en": "The neem bar worked really well for my acne. The price feels a touch high, but it matches the quality.",
+        "bn": "নিম বারটা আমার ব্রণের জন্য ভালো কাজ করেছে। দাম একটু বেশি মনে হলেও মানের সাথে যায়।"
+      },
+      "photo": null,
+      "status": "approved",
+      "createdAt": "2026-05-18"
+    },
+    {
+      "id": "t4",
+      "name": "Farzana Haque",
+      "location": "Dhaka",
+      "rating": 5,
+      "quote": {
+        "en": "Switched my whole family to the goat milk bar — my kids' skin is so much softer now.",
+        "bn": "পুরো পরিবার গোট মিল্ক বারে পাল্টে গেছি — বাচ্চাদের ত্বক এখন অনেক নরম।"
+      },
+      "photo": null,
+      "status": "approved",
+      "createdAt": "2026-06-18"
+    }
+  ],
+  "usageSteps": [
+    {
+      "id": "step1",
+      "title": {
+        "en": "Wet",
+        "bn": "ভেজান"
+      },
+      "text": {
+        "en": "Wet your skin with lukewarm water.",
+        "bn": "কুসুম গরম পানিতে ত্বক ভিজিয়ে নিন।"
+      }
+    },
+    {
+      "id": "step2",
+      "title": {
+        "en": "Lather",
+        "bn": "ফেনা তুলুন"
+      },
+      "text": {
+        "en": "Lather the bar gently between your palms.",
+        "bn": "হাতের তালুতে আলতোভাবে বার ঘষে ফেনা তুলুন।"
+      }
+    },
+    {
+      "id": "step3",
+      "title": {
+        "en": "Massage",
+        "bn": "ম্যাসাজ করুন"
+      },
+      "text": {
+        "en": "Massage onto face or body for 30–60 seconds.",
+        "bn": "মুখ বা শরীরে ৩০–৬০ সেকেন্ড ম্যাসাজ করুন।"
+      }
+    },
+    {
+      "id": "step4",
+      "title": {
+        "en": "Rinse",
+        "bn": "ধুয়ে ফেলুন"
+      },
+      "text": {
+        "en": "Rinse, pat dry, then moisturise.",
+        "bn": "ধুয়ে ফেলুন, হালকাভাবে মুছে ময়েশ্চারাইজ করুন।"
+      }
+    }
+  ],
+  "patchTestNote": {
+    "en": "New to a botanical bar? Patch test on your inner wrist and wait 24 hours before using it on your face.",
+    "bn": "নতুন কোনো হারবাল বার ব্যবহার করছেন? প্রথমে কব্জির ভেতরের অংশে প্যাচ টেস্ট করুন এবং মুখে ব্যবহারের আগে ২৪ ঘণ্টা অপেক্ষা করুন।"
+  },
+  "faq": [
+    {
+      "id": "f1",
+      "question": {
+        "en": "Which bar suits my skin type?",
+        "bn": "কোন বারটা আমার জন্য ভালো হবে?"
+      },
+      "answer": {
+        "en": "Oily or acne-prone skin: try the Neem or Charcoal bar. Dull or uneven tone: the Turmeric bar. Dry skin or all-over body use: the Goat Milk & Saffron bar.",
+        "bn": "তৈলাক্ত বা ব্রণপ্রবণ ত্বকের জন্য নিম বা চারকোল বার ভালো। ত্বকের কালচে দাগের জন্য টারমেরিক বার, এবং শুষ্ক ত্বক বা পুরো শরীরের জন্য গোট মিল্ক ও জাফরান বার বেছে নিন।"
+      }
+    },
+    {
+      "id": "f2",
+      "question": {
+        "en": "How long does delivery take?",
+        "bn": "ডেলিভারি কতদিনে হয়?"
+      },
+      "answer": {
+        "en": "Within Dhaka it usually takes 1–2 business days, and outside Dhaka 3–5 business days. Cash on delivery is available nationwide.",
+        "bn": "ঢাকার মধ্যে সাধারণত ১–২ কার্যদিবস এবং ঢাকার বাইরে ৩–৫ কার্যদিবস সময় লাগে। সারা দেশে ক্যাশ অন ডেলিভারি সুবিধা রয়েছে।"
+      }
+    },
+    {
+      "id": "f3",
+      "question": {
+        "en": "Are the products cruelty-free?",
+        "bn": "প্রোডাক্টগুলো কি cruelty-free?"
+      },
+      "answer": {
+        "en": "Yes, nothing is tested on animals. Aside from the Goat Milk bar, none of the other bars contain animal-derived ingredients.",
+        "bn": "হ্যাঁ, কোনো প্রোডাক্ট প্রাণীর উপর পরীক্ষা করা হয় না। গোট মিল্ক বার ছাড়া বাকি সব বারে কোনো প্রাণীজ উপাদান নেই।"
+      }
+    },
+    {
+      "id": "f4",
+      "question": {
+        "en": "How long does one bar last?",
+        "bn": "একটা বার কতদিন চলে?"
+      },
+      "answer": {
+        "en": "With daily use, an 85g bar typically lasts 4–6 weeks, depending on how often you use it.",
+        "bn": "নিয়মিত ব্যবহারে একটি ৮৫ গ্রামের বার সাধারণত ৪–৬ সপ্তাহ চলে, ব্যবহারের পরিমাণ অনুযায়ী এটা কম-বেশি হতে পারে।"
+      }
+    },
+    {
+      "id": "f5",
+      "question": {
+        "en": "What's the return or exchange policy?",
+        "bn": "রিটার্ন বা এক্সচেঞ্জ পলিসি কী?"
+      },
+      "answer": {
+        "en": "Unopened, sealed bars can be exchanged within 3 days of delivery. For hygiene reasons, opened or used bars can't be returned. (Sample policy — replace with your actual policy.)",
+        "bn": "ডেলিভারির ৩ দিনের মধ্যে অব্যবহৃত ও সিলবদ্ধ বার এক্সচেঞ্জ করা যাবে। স্বাস্থ্যবিধির কারণে খোলা বা ব্যবহৃত বার ফেরত নেওয়া সম্ভব নয়। (নমুনা নীতি — আপনার প্রকৃত নীতি দিয়ে প্রতিস্থাপন করুন)"
+      }
+    }
+  ],
+  "finalCta": {
+    "headline": {
+      "en": "Ready to simplify your",
+      "bn": "আপনার ত্বক পরিচর্যা সহজ করতে"
+    },
+    "headlineAccent": {
+      "en": "skincare?",
+      "bn": "প্রস্তুত?"
+    },
+    "offerText": {
+      "en": "Buy 2 bars, get free nationwide shipping",
+      "bn": "২টি বার কিনুন, সারা দেশে ফ্রি শিপিং পান"
+    },
+    "body": {
+      "en": "Message us on WhatsApp with the bar you'd like and we'll confirm your order and delivery time the same day.",
+      "bn": "আপনার পছন্দের বারটি জানিয়ে হোয়াটসঅ্যাপে মেসেজ করুন, আমরা একই দিনে অর্ডার ও ডেলিভারির সময় নিশ্চিত করব।"
+    },
+    "trustLine": {
+      "en": [
+        "Cash on delivery",
+        "Ships nationwide",
+        "4–6 week cured bars"
+      ],
+      "bn": [
+        "ক্যাশ অন ডেলিভারি",
+        "সারা দেশে ডেলিভারি",
+        "৪–৬ সপ্তাহ কিউরড বার"
+      ]
+    }
+  },
+  "nav": [
+    {
+      "id": "nav1",
+      "label": {
+        "en": "Shop",
+        "bn": "শপ"
+      },
+      "href": "#shop"
+    },
+    {
+      "id": "nav2",
+      "label": {
+        "en": "Our Process",
+        "bn": "আমাদের প্রক্রিয়া"
+      },
+      "href": "#process"
+    },
+    {
+      "id": "nav3",
+      "label": {
+        "en": "Reviews",
+        "bn": "রিভিউ"
+      },
+      "href": "#reviews"
+    },
+    {
+      "id": "nav4",
+      "label": {
+        "en": "FAQ",
+        "bn": "সচরাচর প্রশ্ন"
+      },
+      "href": "#faq"
+    }
+  ],
+  "footer": {
+    "copyright": {
+      "en": "© 2026 Pureva. All rights reserved.",
+      "bn": "© ২০২৬ পিউরেভা। সর্বস্বত্ব সংরক্ষিত।"
+    },
+    "tagline": {
+      "en": "Made by hand in Bangladesh",
+      "bn": "বাংলাদেশে হাতে তৈরি"
+    }
+  }
+}

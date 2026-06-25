@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= typeof pageTitle !== 'undefined' ? pageTitle : 'Admin' %> — Pureva Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="admin-body">
+
+<%- include('../partials/icons') %>
+
+  <aside class="admin-sidebar">
+    <a href="/admin" class="brand">
+      <img src="/assets/logo.svg" alt="Pureva logo">
+      <span class="brand-word">Pureva</span>
+    </a>
+    <div class="admin-label">Admin panel</div>
+
+    <div class="admin-nav-group">
+      <h6>Page content</h6>
+      <% adminNav.pageLinks.forEach(function(l) { %>
+        <a href="<%= l.href %>" class="<%= currentPath === l.href.replace('/admin','') ? 'is-active' : '' %>"><%= l.label %></a>
+      <% }); %>
+    </div>
+
+    <div class="admin-nav-group">
+      <h6>Lists &amp; collections</h6>
+      <a href="/admin/reviews-queue" class="<%= currentPath === '/reviews-queue' ? 'is-active' : '' %>" style="color:var(--gold);">
+        ★ Review queue
+      </a>
+      <% adminNav.listLinks.forEach(function(l) { %>
+        <a href="<%= l.href %>" class="<%= (currentPath && currentPath.indexOf(l.href.replace('/admin','')) === 0) ? 'is-active' : '' %>"><%= l.label %></a>
+      <% }); %>
+    </div>
+
+    <div class="admin-sidebar-bottom">
+      <a href="/" target="_blank" rel="noopener">View live site ↗</a>
+      <form action="/admin/logout" method="POST">
+        <button type="submit">Log out</button>
+      </form>
+    </div>
+  </aside>
+
+  <main class="admin-main">

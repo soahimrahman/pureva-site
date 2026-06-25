@@ -1,0 +1,20 @@
+<svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pureva logo">
+  <title>Pureva</title>
+  <!-- Swap this file to change the site logo everywhere. Keep the square 1:1 viewBox -->
+  <!-- and the site will scale it automatically in the header, footer, and favicon. -->
+  <circle cx="80" cy="80" r="78" fill="#1F3A2E" stroke="#C7984A" stroke-width="2"/>
+  <circle cx="80" cy="80" r="69" fill="none" stroke="#C7984A" stroke-width="1" opacity="0.55"/>
+
+  <!-- botanical leaf accent (same silhouette as the icon set, for consistency) -->
+  <g transform="translate(62,26) scale(1.5)" fill="#C7984A">
+    <path d="M5 19c8 0 13-5 14-14-9 1-14 6-14 14Z"/>
+  </g>
+
+  <!-- monogram letter -->
+  <text x="80" y="118" text-anchor="middle"
+        font-family="Fraunces, 'Playfair Display', Georgia, serif"
+        font-size="58" font-weight="600" fill="#F4EEE2">P</text>
+
+  <!-- baseline rule, echoes the kraft-tag stamp -->
+  <line x1="50" y1="128" x2="110" y2="128" stroke="#C7984A" stroke-width="1.5" opacity="0.8"/>
+</svg>

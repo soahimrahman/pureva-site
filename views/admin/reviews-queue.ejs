@@ -1,0 +1,49 @@
+<%- include('partials/shell-start') %>
+
+  <div class="admin-header">
+    <div class="admin-breadcrumb"><a href="/admin" style="color:inherit">Dashboard</a> / Review Queue</div>
+    <h1>Review approval queue</h1>
+    <p>Reviews submitted by customers. Approve to show in the carousel, reject to hide permanently.</p>
+  </div>
+
+  <% if (pending.length === 0) { %>
+    <div class="admin-empty">No pending reviews — you're all caught up.</div>
+  <% } else { %>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <% pending.forEach(function(rev) { %>
+        <div style="background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);padding:22px 26px;box-shadow:var(--shadow-soft);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+            <div>
+              <div style="font-weight:700;color:var(--forest);font-size:1rem;"><%= rev.name %><% if (rev.location) { %> — <span style="font-weight:400;color:var(--ink-soft);"><%= rev.location %></span><% } %></div>
+              <div style="display:flex;gap:3px;margin:6px 0;color:var(--gold);">
+                <% for (var i=0;i<5;i++) { %><svg style="width:14px;height:14px;"><use href="#<%= i<rev.rating?'icon-star-fill':'icon-star' %>"/></svg><% } %>
+              </div>
+              <% if (rev.quote && rev.quote.en) { %><p style="font-size:.96rem;color:var(--ink);">&ldquo;<%= rev.quote.en %>&rdquo;</p><% } else if (typeof rev.quote === 'string') { %><p>&ldquo;<%= rev.quote %>&rdquo;</p><% } %>
+              <% if (rev.photo) { %><img src="<%= rev.photo %>" style="width:80px;height:80px;object-fit:cover;border-radius:8px;margin-top:10px;border:1px solid var(--line);" alt=""><% } %>
+              <div style="font-size:.78rem;color:var(--ink-soft);margin-top:8px;">Submitted <%= rev.createdAt || 'recently' %></div>
+            </div>
+            <div style="display:flex;gap:10px;flex-shrink:0;">
+              <form action="/admin/reviews-queue/<%= rev.id %>/approve" method="POST">
+                <button type="submit" class="btn btn-outline btn-sm" style="border-color:var(--moss);color:var(--moss);">✓ Approve</button>
+              </form>
+              <form action="/admin/reviews-queue/<%= rev.id %>/reject" method="POST" onsubmit="return confirm('Reject this review permanently?');">
+                <button type="submit" class="btn btn-danger btn-sm">✕ Reject</button>
+              </form>
+              <a href="/admin/reviews/<%= rev.id %>/edit" class="btn btn-ghost btn-sm">Edit</a>
+            </div>
+          </div>
+          <% if (rev.quote && rev.quote.en && (!rev.quote.bn || rev.quote.bn === rev.quote.en)) { %>
+            <div style="margin-top:12px;padding:10px 14px;background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:6px;font-size:.82rem;color:#6b4f1c;">
+              <strong>Tip:</strong> The Bangla translation is a copy of the English. Edit this review to add the real BN translation before approving.
+            </div>
+          <% } %>
+        </div>
+      <% }); %>
+    </div>
+  <% } %>
+
+  <div style="margin-top:28px;">
+    <a href="/admin/reviews" class="btn btn-ghost btn-sm">View all reviews →</a>
+  </div>
+
+<%- include('partials/shell-end') %>

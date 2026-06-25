@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — Pureva</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--paper-deep); }
+  .login-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow-soft); padding: 40px; width: 90%; max-width: 380px; }
+  .login-card img { width: 48px; height: 48px; display: block; margin: 0 auto 14px; }
+  .login-card h1 { font-size: 1.4rem; text-align: center; margin-bottom: 4px; }
+  .login-card .sub { text-align: center; color: var(--ink-soft); font-size: 0.88rem; margin-bottom: 26px; }
+  .login-card label { display: block; font-weight: 600; color: var(--forest); margin-bottom: 6px; font-size: 0.9rem; }
+  .login-card input { width: 100%; padding: 11px 14px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--paper); font-size: 0.95rem; margin-bottom: 18px; }
+  .login-card input:focus { outline: 2px solid var(--gold-deep); border-color: var(--gold-deep); }
+  .login-error { background: #FBEAE5; border: 1px solid #C75B3E; color: #8a3a23; padding: 10px 14px; border-radius: var(--radius-sm); margin-bottom: 18px; font-size: 0.88rem; }
+  .login-setup { background: var(--amber-bg); border: 1px solid var(--amber-line); color: #6b4f1c; padding: 12px 14px; border-radius: var(--radius-sm); margin-bottom: 18px; font-size: 0.88rem; }
+  .login-setup code { background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+  <div class="login-card">
+    <img src="/assets/logo.svg" alt="Pureva logo">
+    <h1>Admin Login</h1>
+    <p class="sub">Sign in to edit your site content.</p>
+
+    <% if (needsSetup) { %>
+      <div class="login-setup">
+        No admin account has been set up yet. On the server, run <code>npm run create-admin</code> in the terminal to create one.
+      </div>
+    <% } %>
+    <% if (error && !needsSetup) { %>
+      <div class="login-error"><%= error %></div>
+    <% } %>
+
+    <form action="/admin/login" method="POST">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" autocomplete="username" required>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" autocomplete="current-password" required>
+      <button type="submit" class="btn btn-outline btn-block">Log in</button>
+    </form>
+  </div>
+</body>
+</html>

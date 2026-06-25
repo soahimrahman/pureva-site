@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= t(product.name) %> — <%= content.settings.brandName %></title>
+<meta name="description" content="<%= t(product.description) %>">
+<link rel="icon" type="image/svg+xml" href="<%= content.settings.logoPath %>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="scroll-progress" role="progressbar" aria-hidden="true"></div>
+<%- include('partials/icons') %>
+<%- include('partials/header') %>
+
+<main class="section" style="padding-top:40px;">
+  <div class="container">
+    <a href="/#shop" class="pdp-back"><svg style="width:16px;height:16px;"><use href="#icon-arrow-left"/></svg><%= ui('backToShop') %></a>
+
+    <div class="pdp-grid">
+
+      <!-- Image / visual -->
+      <div class="pdp-media reveal" style="--c1:<%= product.color %>; --c2:<%= shade(product.color, -30) %>;">
+        <% if (product.image) { %>
+          <img src="<%= product.image %>" alt="<%= t(product.name) %>">
+        <% } else { %>
+          <svg class="pdp-icon"><use href="#<%= product.icon %>"/></svg>
+        <% } %>
+        <% if (product.pricing.onSale) { %><span class="pcard-badge">-<%= product.pricing.percentOff %>% <%= lang==='bn'?'ছাড়':'OFF' %></span><% } %>
+      </div>
+
+      <!-- Info -->
+      <div class="pdp-info reveal" data-delay="80">
+
+        <% if (product.rating) { %>
+          <div class="pdp-rating">
+            <% var pstars = [0,1,2,3,4]; pstars.forEach(function(si){ %><svg><use href="#<%= si < product.rating ? 'icon-star-fill' : 'icon-star' %>"/></svg><% }); %>
+            <span class="num"><%= product.rating %></span>
+          </div>
+        <% } %>
+
+        <h1 class="pdp-name"><%= t(product.name) %></h1>
+        <% var bnName = product.name && product.name.bn; if (bnName && lang !== 'bn') { %><p class="pdp-bn"><%= bnName %></p><% } %>
+
+        <div class="pdp-price-row">
+          <span class="pdp-price"><span class="currency">৳</span><%= product.pricing.displayPrice %></span>
+          <% if (product.pricing.onSale) { %>
+            <span class="pdp-price-original"><span class="currency">৳</span><%= product.pricing.originalPrice %></span>
+            <span class="pdp-save"><%= lang==='bn'?'সাশ্রয়':'Save' %> <%= product.pricing.percentOff %>%</span>
+          <% } %>
+        </div>
+        <% if (product.pricing.saleEndDate) { %>
+          <p class="pdp-sale-end"><%= lang==='bn'?'অফার শেষ হবে':'Offer ends' %> <%= product.pricing.saleEndDate %></p>
+        <% } %>
+        <p class="pdp-weight"><%= product.weight %> bar</p>
+
+        <p class="pdp-desc"><%= t(product.description) %></p>
+
+        <!-- Ingredient ledger -->
+        <span class="pdp-section-label"><%= ui('keyIngredients') %></span>
+        <div class="pdp-ledger"><%= t(product.ledger) %></div>
+
+        <!-- Benefits -->
+        <span class="pdp-section-label"><%= ui('benefits') %></span>
+        <ul class="pdp-benefits">
+          <% tList(product.benefits).forEach(function(b) { %>
+            <li><svg><use href="#icon-check"/></svg><%= b %></li>
+          <% }); %>
+        </ul>
+
+        <div class="pdp-cta-row">
+          <a href="https://wa.me/<%= content.settings.whatsappNumber %>?text=<%= encodeURIComponent('Hi! I want to order the ' + t(product.name)) %>" class="btn btn-whatsapp">
+            <svg><use href="#icon-whatsapp"/></svg><%= ui('addToOrder') %>
+          </a>
+          <a href="<%= content.settings.facebookUrl %>" class="btn btn-outline">
+            <svg><use href="#icon-facebook"/></svg><%= lang==='bn'?'ফেসবুকে মেসেজ':'Facebook' %>
+          </a>
+        </div>
+        <div class="cta-trustline" style="margin-top:22px;justify-content:flex-start;">
+          <span><svg><use href="#icon-check"/></svg><%= lang==='bn'?'ক্যাশ অন ডেলিভারি':'Cash on delivery' %></span>
+          <span><svg><use href="#icon-check"/></svg><%= lang==='bn'?'সারা দেশে ডেলিভারি':'Nationwide shipping' %></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related products -->
+    <% if (otherProducts && otherProducts.length) { %>
+      <div class="pdp-related reveal">
+        <h3><%= lang==='bn'?'আরও দেখুন':'More bars' %></h3>
+        <div class="pdp-related-grid">
+          <% otherProducts.forEach(function(op) { %>
+            <a href="/product/<%= op.id %>" class="pcard" style="text-decoration:none;">
+              <div class="pcard-media" style="--c1:<%= op.color %>; --c2:<%= shade(op.color,-30) %>;">
+                <% if (op.image) { %><img src="<%= op.image %>" alt="<%= t(op.name) %>"><% } else { %><svg class="pcard-icon"><use href="#<%= op.icon %>"/></svg><% } %>
+                <% if (op.pricing.onSale) { %><span class="pcard-badge">-<%= op.pricing.percentOff %>%</span><% } %>
+              </div>
+              <div class="pcard-body">
+                <div class="pcard-rating"><svg><use href="#icon-star-fill"/></svg><span class="num"><%= op.rating||'—' %></span></div>
+                <span class="pcard-name"><%= t(op.name) %></span>
+                <div class="pcard-price-row">
+                  <span class="pcard-price"><span class="currency">৳</span><%= op.pricing.displayPrice %></span>
+                  <% if (op.pricing.onSale) { %><span class="pcard-price-original"><span class="currency">৳</span><%= op.pricing.originalPrice %></span><% } %>
+                </div>
+              </div>
+            </a>
+          <% }); %>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

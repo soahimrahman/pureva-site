@@ -1,0 +1,28 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="<%= content.settings.logoPath %>" alt="<%= content.settings.brandName %>">
+        <%= content.settings.brandName %>
+      </div>
+      <p style="margin-top:10px;font-size:0.82rem;color:#7a8c80;max-width:220px;line-height:1.55;"><%= t(content.settings.tagline) %></p>
+    </div>
+    <ul class="footer-links">
+      <% content.nav.forEach(function(item) { %>
+        <li><a href="<%= item.href %>"><%= t(item.label) %></a></li>
+      <% }); %>
+    </ul>
+    <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end;">
+      <a href="https://wa.me/<%= content.settings.whatsappNumber %>" class="btn btn-whatsapp btn-sm" style="width:fit-content;">
+        <svg><use href="#icon-whatsapp"/></svg><%= ui('orderNow') %>
+      </a>
+      <a href="<%= content.settings.facebookUrl %>" class="btn btn-facebook btn-sm" style="width:fit-content;">
+        <svg><use href="#icon-facebook"/></svg><%= lang==='bn'?'ফেসবুকে মেসেজ করুন':'Message on Facebook' %>
+      </a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span><%= t(content.footer.copyright) %></span>
+    <span><%= t(content.footer.tagline) %></span>
+  </div>
+</footer>

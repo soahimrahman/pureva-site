@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= content.settings.brandName %> — <%= lang==='bn'?'বাংলাদেশে প্রাকৃতিক হাতে তৈরি সাবান':'Natural Handmade Soap in Bangladesh' %></title>
+<meta name="description" content="<%= t(content.settings.metaDescription) %>">
+<link rel="icon" type="image/svg+xml" href="<%= content.settings.logoPath %>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="scroll-progress" role="progressbar" aria-hidden="true"></div>
+<%- include('partials/icons') %>
+<%- include('partials/header') %>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow reveal" data-delay="0"><%= t(content.hero.eyebrow) %></span>
+      <h1 class="reveal" data-delay="80"><%= t(content.hero.headline) %> <em><%= t(content.hero.headlineAccent) %></em></h1>
+      <p class="hero-sub reveal" data-delay="140"><%= t(content.hero.subhead) %></p>
+      <div class="hero-note reveal" data-delay="200"><%- t(content.hero.noteHtml) %></div>
+      <div class="btn-row hero-cta reveal" data-delay="260">
+        <a href="https://wa.me/<%= content.settings.whatsappNumber %>" class="btn btn-whatsapp">
+          <svg><use href="#icon-whatsapp"/></svg><%= t(content.hero.primaryCtaLabel) %>
+        </a>
+        <a href="#shop" class="btn btn-outline"><%= t(content.hero.secondaryCtaLabel) %></a>
+      </div>
+      <div class="hero-stats reveal" data-delay="320">
+        <% content.heroStats.forEach(function(stat) { %>
+          <div><span class="num"><%= stat.num %></span><span class="lbl"><%= t(stat.label) %></span></div>
+        <% }); %>
+      </div>
+    </div>
+    <div class="hero-visual reveal" data-delay="100">
+      <div class="specimen-frame">
+        <div class="specimen-frame__inner">
+          <% if (content.hero.image) { %>
+            <img src="<%= content.hero.image %>" alt="<%= content.settings.brandName %> products">
+          <% } else { %>
+            <svg class="placeholder-mark"><use href="#icon-leaf"/></svg>
+            <p class="placeholder-copy"><%= lang==='bn'?'হিরো ফটো স্লট — অ্যাডমিন থেকে আপলোড করুন':'Product photography slot — upload from admin panel' %></p>
+          <% } %>
+        </div>
+      </div>
+      <div class="hero-seal"><%- lang==='bn'?'১০০%<br>প্রাকৃতিক':'100%<br>NATURAL' %></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="scroll-cue reveal" data-delay="500">
+      <svg><use href="#icon-chevron-down"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRODUCTS  — simplified cards
+============================================================ -->
+<section class="section products" id="shop">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><%= lang==='bn'?'কালেকশন':'The collection' %></span>
+      <h2><%= lang==='bn'?'চারটি বার, চারটি কাজ':'Four bars, four jobs' %></h2>
+      <p><%= lang==='bn'?'প্রতিটি বার একটি মূল বোটানিক্যাল উপাদান দিয়ে তৈরি — কোনো ফিলার নেই, কোনো ডিটারজেন্ট নেই।':'Each one cold-processed around a single hero botanical — no fillers, no detergents.' %></p>
+    </div>
+
+    <div class="product-grid">
+      <% products.forEach(function(p, idx) { %>
+        <article class="pcard reveal" data-delay="<%= idx * 60 %>">
+          <a class="pcard-media" href="/product/<%= p.id %>" style="--c1:<%= p.color %>; --c2:<%= shade(p.color, -30) %>;">
+            <% if (p.image) { %>
+              <img src="<%= p.image %>" alt="<%= t(p.name) %>">
+            <% } else { %>
+              <svg class="pcard-icon"><use href="#<%= p.icon %>"/></svg>
+            <% } %>
+            <% if (p.pricing.onSale) { %><span class="pcard-badge">-<%= p.pricing.percentOff %>%</span><% } %>
+            <a href="https://wa.me/<%= content.settings.whatsappNumber %>?text=<%= encodeURIComponent('Hi! I want to order the ' + t(p.name)) %>" class="pcard-quick-order" aria-label="<%= ui('orderNow') %>">
+              <svg><use href="#icon-whatsapp"/></svg>
+            </a>
+          </a>
+          <div class="pcard-body">
+            <div class="pcard-rating">
+              <svg><use href="#icon-star-fill"/></svg>
+              <span class="num"><%= p.rating || '—' %></span>
+            </div>
+            <a href="/product/<%= p.id %>" class="pcard-name"><%= t(p.name) %></a>
+            <div class="pcard-price-row">
+              <span class="pcard-price"><span class="currency">৳</span><%= p.pricing.displayPrice %></span>
+              <% if (p.pricing.onSale) { %><span class="pcard-price-original"><span class="currency">৳</span><%= p.pricing.originalPrice %></span><% } %>
+            </div>
+            <a href="/product/<%= p.id %>" class="pcard-view">
+              <%= ui('viewDetails') %> <svg><use href="#icon-arrow-right"/></svg>
+            </a>
+          </div>
+        </article>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COMPARISON
+============================================================ -->
+<section class="section compare" id="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><%= t(content.compare.eyebrow) %></span>
+      <h2><%= t(content.compare.title) %></h2>
+      <p><%= t(content.compare.subtitle) %></p>
+    </div>
+    <div class="compare-card reveal">
+      <div class="compare-row is-head">
+        <div class="compare-cell"><%= lang==='bn'?'বিষয়':'Factor' %></div>
+        <div class="compare-cell"><%= content.settings.brandName %></div>
+        <div class="compare-cell"><%= lang==='bn'?'সাধারণ সাবান':'Regular soap' %></div>
+      </div>
+      <% content.compareRows.forEach(function(row) { %>
+        <div class="compare-row">
+          <div class="compare-cell label"><%= t(row.label) %></div>
+          <div class="compare-cell pureva"><svg style="width:14px;height:14px;color:var(--moss);margin-right:6px;flex-shrink:0;vertical-align:-2px;"><use href="#icon-check"/></svg><%= t(row.pureva) %></div>
+          <div class="compare-cell regular"><%= t(row.regular) %></div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INGREDIENTS
+============================================================ -->
+<section class="section ingredients">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><%= lang==='bn'?'ভেতরে কী আছে':'What\'s inside' %></span>
+      <h2><%= lang==='bn'?'ছয়টি উপাদান, কোনো ফিলার নেই':'Six ingredients, no filler' %></h2>
+      <p><%= lang==='bn'?'প্রতিটি বার এই সংক্ষিপ্ত, চেনা উপাদানের তালিকা থেকে তৈরি।':'Every bar is built from this short, recognisable ingredient list.' %></p>
+    </div>
+    <div class="ing-grid">
+      <% content.ingredients.forEach(function(ing, i) { %>
+        <div class="ing-card reveal" data-delay="<%= i * 50 %>">
+          <div class="ing-icon"><svg><use href="#<%= ing.icon %>"/></svg></div>
+          <h4><%= t(ing.name) %></h4>
+          <p><%= t(ing.description) %></p>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRUST
+============================================================ -->
+<section class="section trust">
+  <div class="container trust-grid">
+    <div class="trust-copy reveal">
+      <span class="eyebrow"><%= t(content.trust.eyebrow) %></span>
+      <h3><%= t(content.trust.title) %></h3>
+      <p><%= t(content.trust.body) %></p>
+      <ul class="trust-points">
+        <% tList(content.trust.points).forEach(function(pt) { %>
+          <li><svg><use href="#icon-check"/></svg><%= pt %></li>
+        <% }); %>
+      </ul>
+    </div>
+    <div class="badge-grid reveal">
+      <% content.trustBadges.forEach(function(badge) { %>
+        <div class="badge-card">
+          <svg><use href="#<%= badge.icon %>"/></svg>
+          <h4><%= t(badge.title) %></h4>
+          <p><%= t(badge.text) %></p>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REVIEWS CAROUSEL
+============================================================ -->
+<section class="section reviews" id="reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><%= lang==='bn'?'গ্রাহকদের মতামত':'From customers' %></span>
+      <h2><%= ui('reviewsHeading') %></h2>
+      <p><%= ui('reviewsSub') %></p>
+    </div>
+
+    <% if (typeof reviewSubmitted !== 'undefined' && reviewSubmitted) { %>
+      <div class="review-flash success reveal"><%= ui('reviewThanksTitle') %> <%= ui('reviewThanksBody') %></div>
+    <% } %>
+    <% if (typeof reviewError !== 'undefined' && reviewError) { %>
+      <div class="review-flash error"><%= ui('reviewErrorBody') %></div>
+    <% } %>
+
+    <div class="carousel-wrap reveal">
+      <div class="reviews-track" role="list" aria-label="<%= ui('reviewsHeading') %>">
+        <% approvedReviews.forEach(function(rev) { %>
+          <div class="review-card" role="listitem">
+            <% if (rev.photo) { %><img src="<%= rev.photo %>" alt="" class="review-card-photo"><% } %>
+            <div>
+              <div class="review-stars" aria-label="<%= rev.rating %> out of 5 stars">
+                <% var stars = [0,1,2,3,4]; stars.forEach(function(si){ %><svg><use href="#<%= si < rev.rating ? 'icon-star-fill' : 'icon-star' %>"/></svg><% }); %>
+              </div>
+              <p class="review-quote">&ldquo;<%= t(rev.quote) %>&rdquo;</p>
+            </div>
+            <div class="review-meta">
+              <div class="review-avatar">
+                <% if (rev.photo) { %><img src="<%= rev.photo %>" alt=""><% } else { %><%= rev.name.charAt(0) %><% } %>
+              </div>
+              <div>
+                <div class="review-name"><%= rev.name %></div>
+                <% if (rev.location) { %><div class="review-loc"><%= rev.location %></div><% } %>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-arrow" data-dir="prev" aria-label="<%= ui('prevReview') %>"><svg><use href="#icon-arrow-left"/></svg></button>
+        <div class="carousel-dots" role="tablist">
+          <% approvedReviews.forEach(function(_, i) { %><button class="carousel-dot <%= i===0?'is-active':'' %>" role="tab" aria-label="Review <%= i+1 %>"></button><% }); %>
+        </div>
+        <button class="carousel-playpause" aria-label="<%= ui('pauseCarousel') %>">
+          <svg><use href="#icon-pause"/></svg>
+        </button>
+        <button class="carousel-arrow" data-dir="next" aria-label="<%= ui('nextReview') %>"><svg><use href="#icon-arrow-right"/></svg></button>
+      </div>
+    </div>
+
+    <!-- Write-a-review toggle -->
+    <div class="reviews-cta reveal">
+      <button class="btn btn-outline write-review-btn" aria-expanded="false">
+        <svg><use href="#icon-star"/></svg><%= ui('writeAReview') %>
+      </button>
+    </div>
+
+    <div class="review-form-wrap" aria-hidden="true">
+      <form class="review-form" action="/reviews/submit" method="POST" enctype="multipart/form-data">
+        <h4><%= ui('shareYourReview') %></h4>
+
+        <!-- Honeypot — hidden from real users -->
+        <div class="hp-field" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+
+        <div class="form-row">
+          <label for="rev-name"><%= ui('yourName') %> *</label>
+          <input type="text" id="rev-name" name="name" required maxlength="80">
+        </div>
+        <div class="form-row">
+          <label for="rev-loc"><%= ui('yourLocation') %></label>
+          <input type="text" id="rev-loc" name="location" maxlength="60">
+        </div>
+        <div class="form-row">
+          <label><%= ui('yourRating') %> *</label>
+          <div class="star-input" role="radiogroup">
+            <% ;[5,4,3,2,1].forEach(function(s){ %>
+              <input type="radio" name="rating" id="star<%= s %>" value="<%= s %>" required>
+              <label for="star<%= s %>"><svg><use href="#icon-star"/></svg></label>
+            <% }); %>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="rev-quote"><%= ui('yourReview') %> *</label>
+          <textarea id="rev-quote" name="quote" required maxlength="600" rows="3"></textarea>
+        </div>
+        <div class="form-row">
+          <label for="rev-photo"><%= ui('yourPhoto') %></label>
+          <input type="file" id="rev-photo" name="photo" accept="image/*">
+        </div>
+        <div style="display:flex;gap:12px;margin-top:18px;">
+          <button type="submit" class="btn btn-outline"><svg><use href="#icon-check"/></svg><%= ui('submitReview') %></button>
+          <button type="button" class="btn btn-ghost review-form-close"><%= ui('closeForm') %></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     USAGE STEPS + FAQ
+============================================================ -->
+<section class="section usage">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><%= lang==='bn'?'ব্যবহার পদ্ধতি':'How to use' %></span>
+      <h2><%= lang==='bn'?content.usageSteps.length + 'টি ধাপ, প্রতিবার':content.usageSteps.length + ' steps, every time' %></h2>
+    </div>
+    <div class="steps-row">
+      <% content.usageSteps.forEach(function(step, i) { %>
+        <div class="step-card reveal" data-delay="<%= i*60 %>">
+          <div class="step-num"><%= i + 1 %></div>
+          <h5><%= t(step.title) %></h5>
+          <p><%= t(step.text) %></p>
+        </div>
+      <% }); %>
+    </div>
+    <div class="patch-note reveal">
+      <svg><use href="#icon-shield"/></svg>
+      <span><%= t(content.patchTestNote) %></span>
+    </div>
+  </div>
+</section>
+
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><%= lang==='bn'?'প্রশ্নোত্তর':'Questions' %></span>
+      <h2><%= lang==='bn'?'সচরাচর জিজ্ঞাসা':'Frequently asked' %></h2>
+    </div>
+    <div class="faq-list">
+      <% content.faq.forEach(function(item) { %>
+        <div class="faq-item reveal" data-open="false">
+          <button class="faq-q" aria-expanded="false"><%= t(item.question) %><svg><use href="#icon-chevron-down"/></svg></button>
+          <div class="faq-a"><%= t(item.answer) %></div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA
+============================================================ -->
+<section class="section final-cta">
+  <div class="container reveal">
+    <h2><%= t(content.finalCta.headline) %> <em><%= t(content.finalCta.headlineAccent) %></em></h2>
+    <div class="offer-pill"><%= t(content.finalCta.offerText) %></div>
+    <p><%= t(content.finalCta.body) %></p>
+    <div class="btn-row center">
+      <a href="https://wa.me/<%= content.settings.whatsappNumber %>" class="btn btn-whatsapp">
+        <svg><use href="#icon-whatsapp"/></svg><%= lang==='bn'?'হোয়াটসঅ্যাপে অর্ডার করুন':'Order on WhatsApp' %>
+      </a>
+      <a href="<%= content.settings.facebookUrl %>" class="btn btn-facebook">
+        <svg><use href="#icon-facebook"/></svg><%= lang==='bn'?'ফেসবুকে মেসেজ করুন':'Message on Facebook' %>
+      </a>
+    </div>
+    <div class="cta-trustline">
+      <% tList(content.finalCta.trustLine).forEach(function(line) { %>
+        <span><svg><use href="#icon-check"/></svg><%= line %></span>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "pureva-site",
+  "version": "1.0.0",
+  "description": "Pureva — natural handmade soap site with a no-code admin panel.",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "create-admin": "node scripts/create-admin.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "multer": "^1.4.5-lts.1",
+    "sslcommerz-lts": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

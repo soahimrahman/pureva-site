@@ -1,0 +1,47 @@
+<%- include('partials/shell-start') %>
+
+  <div class="admin-header">
+    <h1>Welcome back<% if (username) { %>, <%= username %><% } %></h1>
+    <p>Changes save immediately — no code edits needed.</p>
+  </div>
+
+  <% if (saved) { %>
+    <div class="admin-flash">✓ Saved. Changes are live on the site.</div>
+  <% } %>
+
+  <!-- Stats row -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px;">
+    <div class="admin-card" style="background:var(--forest);color:var(--paper);pointer-events:none;cursor:default;">
+      <div class="count" style="color:var(--gold)"><%= stats.totalProducts %></div>
+      <div class="label" style="color:rgba(244,238,226,.75)">Products</div>
+    </div>
+    <a href="/admin/reviews-queue" class="admin-card" style="<%= stats.pendingReviews > 0 ? 'border-color:#C75B3E;' : '' %>">
+      <div class="count" style="<%= stats.pendingReviews > 0 ? 'color:#C75B3E;' : '' %>"><%= stats.pendingReviews %></div>
+      <div class="label">Pending reviews</div>
+      <% if (stats.pendingReviews > 0) { %><div style="font-size:.78rem;color:#C75B3E;margin-top:4px;font-weight:600;">Needs approval</div><% } %>
+    </a>
+    <div class="admin-card" style="pointer-events:none;cursor:default;">
+      <div class="count" style="color:var(--gold-deep)"><%= stats.activeDiscounts %></div>
+      <div class="label">Active discounts</div>
+    </div>
+  </div>
+
+  <h6 class="admin-breadcrumb">Page content</h6>
+  <div class="admin-page-list" style="margin-bottom:36px;">
+    <% Object.keys(singleSections).forEach(function(key) { %>
+      <a href="/admin/page/<%= key %>"><%= singleSections[key].label %></a>
+    <% }); %>
+    <a href="/admin/page-patch-note">Patch-test note</a>
+  </div>
+
+  <h6 class="admin-breadcrumb">Lists &amp; collections</h6>
+  <div class="admin-card-grid">
+    <% sectionCounts.forEach(function(s) { %>
+      <a href="/admin/<%= s.key %>" class="admin-card">
+        <div class="count"><%= s.count %></div>
+        <div class="label"><%= s.label %></div>
+      </a>
+    <% }); %>
+  </div>
+
+<%- include('partials/shell-end') %>

@@ -1,0 +1,118 @@
+<%- include('partials/shell-start') %>
+
+  <div class="admin-header">
+    <div class="admin-breadcrumb">
+      <a href="/admin" style="color:inherit">Dashboard</a> /
+      <a href="/admin/<%= sectionKey %>" style="color:inherit"><%= config.label %></a> /
+      <%= isNew ? 'Add' : 'Edit' %>
+    </div>
+    <h1><%= isNew ? 'Add ' + config.singular : 'Edit ' + config.singular %></h1>
+  </div>
+
+  <% if (error) { %><div class="admin-error"><%= error %></div><% } %>
+
+  <form class="admin-form"
+        action="<%= isNew ? '/admin/' + sectionKey + '/new' : '/admin/' + sectionKey + '/' + item.id + '/edit' %>"
+        method="POST"
+        enctype="multipart/form-data">
+
+    <% config.fields.forEach(function(f) { %>
+      <div class="form-row">
+
+        <% if (f.type === 'bitext' || f.type === 'bitextarea') { %>
+          <label><%= f.label %><% if (f.required) { %> *<% } %></label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div>
+              <div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:5px;">English</div>
+              <% if (f.type === 'bitextarea') { %>
+                <textarea name="<%= f.key %>__en" rows="3" <%= f.required ? 'required' : '' %>><%= (item[f.key] && item[f.key].en) || '' %></textarea>
+              <% } else { %>
+                <input type="text" name="<%= f.key %>__en" value="<%= (item[f.key] && item[f.key].en) || '' %>" <%= f.required ? 'required' : '' %>>
+              <% } %>
+            </div>
+            <div>
+              <div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:5px;">বাংলা</div>
+              <% if (f.type === 'bitextarea') { %>
+                <textarea name="<%= f.key %>__bn" rows="3" style="font-family:'Hind Siliguri',sans-serif;"><%= (item[f.key] && item[f.key].bn) || '' %></textarea>
+              <% } else { %>
+                <input type="text" name="<%= f.key %>__bn" value="<%= (item[f.key] && item[f.key].bn) || '' %>" style="font-family:'Hind Siliguri',sans-serif;">
+              <% } %>
+            </div>
+          </div>
+
+        <% } else if (f.type === 'bilist') { %>
+          <label><%= f.label %><% if (f.required) { %> *<% } %></label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div>
+              <div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:5px;">English (one per line)</div>
+              <textarea name="<%= f.key %>__en" rows="4" <%= f.required ? 'required' : '' %>><%= (item[f.key] && Array.isArray(item[f.key].en)) ? item[f.key].en.join('\n') : '' %></textarea>
+            </div>
+            <div>
+              <div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:5px;">বাংলা (এক লাইনে একটি)</div>
+              <textarea name="<%= f.key %>__bn" rows="4" style="font-family:'Hind Siliguri',sans-serif;"><%= (item[f.key] && Array.isArray(item[f.key].bn)) ? item[f.key].bn.join('\n') : '' %></textarea>
+            </div>
+          </div>
+
+        <% } else if (f.type === 'text') { %>
+          <label for="field-<%= f.key %>"><%= f.label %><% if (f.required) { %> *<% } %></label>
+          <input type="text" id="field-<%= f.key %>" name="<%= f.key %>" value="<%= item[f.key] || '' %>" <%= f.required ? 'required' : '' %>>
+
+        <% } else if (f.type === 'number') { %>
+          <label for="field-<%= f.key %>"><%= f.label %><% if (f.required) { %> *<% } %></label>
+          <input type="number" id="field-<%= f.key %>" name="<%= f.key %>"
+                 value="<%= item[f.key] !== undefined && item[f.key] !== null ? item[f.key] : '' %>"
+                 <%= f.min !== undefined ? 'min=' + f.min : '' %>
+                 <%= f.max !== undefined ? 'max=' + f.max : '' %>
+                 step="0.1"
+                 <%= f.required ? 'required' : '' %>>
+
+        <% } else if (f.type === 'color') { %>
+          <label for="field-<%= f.key %>"><%= f.label %></label>
+          <input type="color" id="field-<%= f.key %>" name="<%= f.key %>" value="<%= item[f.key] || f.default || '#3D6453' %>">
+
+        <% } else if (f.type === 'select') { %>
+          <label for="field-<%= f.key %>"><%= f.label %></label>
+          <select id="field-<%= f.key %>" name="<%= f.key %>">
+            <% (f.options || []).forEach(function(opt) { %>
+              <option value="<%= opt %>" <%= item[f.key] === opt ? 'selected' : '' %>><%= opt %></option>
+            <% }); %>
+          </select>
+
+        <% } else if (f.type === 'textarea') { %>
+          <label for="field-<%= f.key %>"><%= f.label %><% if (f.required) { %> *<% } %></label>
+          <textarea id="field-<%= f.key %>" name="<%= f.key %>" <%= f.required ? 'required' : '' %>><%= item[f.key] || '' %></textarea>
+
+        <% } else if (f.type === 'list') { %>
+          <label for="field-<%= f.key %>"><%= f.label %></label>
+          <textarea id="field-<%= f.key %>" name="<%= f.key %>"><%= Array.isArray(item[f.key]) ? item[f.key].join('\n') : (item[f.key] || '') %></textarea>
+
+        <% } else if (f.type === 'image') { %>
+          <label><%= f.label %></label>
+          <div class="current-image">
+            <% if (item[f.key]) { %>
+              <img src="<%= item[f.key] %>" alt="">
+              <label class="checkbox-row" style="margin:0;"><input type="checkbox" name="<%= f.key %>__clear"> Remove current image</label>
+            <% } else { %>
+              <span class="no-image">No image set</span>
+            <% } %>
+          </div>
+          <input type="file" name="image" accept="image/*">
+        <% } %>
+
+        <% if (f.help) { %><div class="help"><%= f.help %></div><% } %>
+      </div>
+    <% }); %>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-outline"><%= isNew ? 'Create' : 'Save changes' %></button>
+      <a href="/admin/<%= sectionKey %>" class="btn btn-ghost">Cancel</a>
+      <% if (!isNew) { %>
+        <form action="/admin/<%= sectionKey %>/<%= item.id %>/delete" method="POST" class="delete-form"
+              onsubmit="return confirm('Delete this <%= config.singular.toLowerCase() %>? Cannot be undone.');" style="margin-left:auto;">
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      <% } %>
+    </div>
+  </form>
+
+<%- include('partials/shell-end') %>

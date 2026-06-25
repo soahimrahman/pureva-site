@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — <%= content.settings.brandName %></title>
+<link rel="icon" type="image/svg+xml" href="<%= content.settings.logoPath %>">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  body { display:flex; align-items:center; justify-content:center; min-height:100vh; text-align:center; }
+  .nf-wrap img { width:56px; margin-bottom:18px; }
+</style>
+</head>
+<body>
+  <div class="nf-wrap">
+    <img src="<%= content.settings.logoPath %>" alt="">
+    <h1 style="font-size:1.6rem;margin-bottom:10px;"><%= lang === 'bn' ? 'এই পেজটি খুঁজে পাওয়া যায়নি' : 'Page not found' %></h1>
+    <p style="margin-bottom:20px;color:var(--ink-soft);"><%= lang === 'bn' ? 'প্রোডাক্টটি হয়তো সরিয়ে ফেলা হয়েছে।' : 'This product may have been removed.' %></p>
+    <a href="/" class="btn btn-outline"><%= lang === 'bn' ? 'হোমে ফিরুন' : 'Back to homepage' %></a>
+  </div>
+</body>
+</html>
